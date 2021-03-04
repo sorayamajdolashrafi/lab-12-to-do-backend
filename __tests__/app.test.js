@@ -40,7 +40,7 @@ describe('app routes', () => {
     const databaseTodos = {
       ...todo,
       user_id: 2,
-      id: 7
+      id: 4
     };
 
     test('post endpoint to create a todo', async() => {
@@ -64,13 +64,11 @@ describe('app routes', () => {
     test('put endpoint to update a todo', async() => {
 
       const updatedTodo = {
-        hacer: 'updated test time',
-        color: 'pink',
-        completed: true,
+        id: 4
       };
 
       await fakeRequest(app)
-        .put('/api/todos/7')
+        .put('/api/todos/4')
         .send(updatedTodo)
         .set('Authorization', token)
         .expect('Content-Type', /json/)
@@ -84,10 +82,10 @@ describe('app routes', () => {
 
       const updatedDatabaseTodos = [
         {
-          hacer: 'updated test time',
-          color: 'pink',
+          hacer: 'test time',
+          color: 'red',
           completed: true,
-          id: 7,
+          id: 4,
           user_id: 2
         }
       ];
@@ -99,10 +97,10 @@ describe('app routes', () => {
 
       const expectation = [
         {
-          hacer: 'updated test time',
-          color: 'pink',
+          hacer: 'test time',
+          color: 'red',
           completed: true,
-          id: 7,
+          id: 4,
           user_id: 2
         }
       ];
@@ -142,29 +140,8 @@ describe('app routes', () => {
         },
         {
           id: 4,
-          hacer: 'call charlie',
-          color: 'verde',
-          completed: false,
-          user_id: 1
-        },
-        {
-          id: 5,
-          hacer: 'cena',
-          color: 'amarillo',
-          completed: false,
-          user_id: 1
-        },
-        {
-          id: 6,
-          hacer: 'tecito',
-          color: 'rosado',
-          completed: false,
-          user_id: 1
-        },
-        {
-          id: 7,
-          hacer: 'updated test time',
-          color: 'pink',
+          hacer: 'test time',
+          color: 'red',
           completed: true,
           user_id: 2
         }
